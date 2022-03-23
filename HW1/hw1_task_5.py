@@ -1,7 +1,7 @@
 from typing import List
 import pytest
 nums = [5, 2, -3, -3, 6, 8, 3, 8, -7, -9, 1, 9, -5, 7, -5, 3, 2]
-k = 5
+k = 3
 
 
 def find_maximal_subarray_sum(nums: List[int], k: int) -> int:
@@ -24,7 +24,7 @@ def find_maximal_subarray_sum(nums: List[int], k: int) -> int:
         except IndexError:
             break
 
-    return print(sum_max)
+    return sum_max
 
 
 find_maximal_subarray_sum(nums, k)

@@ -29,7 +29,7 @@ def cache(func: Callable) -> Callable:
 
     return inner
 
-"""
+
 def func(a, b):
     return (a ** b) ** 2
 
@@ -44,4 +44,3 @@ val_2 = cache_func(*some)
 assert val_1 is val_2
 
 print(val_1)
-"""

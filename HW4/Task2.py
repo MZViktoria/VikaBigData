@@ -27,5 +27,16 @@ You will learn:
 
 
 def read_magic_number(path: str) -> bool:
+     with open(path) as file:
+        result = True
+        try:
+            linenumber = file.readline().split()  # read the line of the file and separate the elements with a space
+            for i in range(0, len(linenumber)): # we iterate over our values in an array
+                if float(linenumber[i]) >= 1.0 and float(linenumber[i]) < 3.0: # we translate our value into a number and check the condition
+                     pass
+                else:
+                     return False
+        except ValueError: #  we get an error if we failed to convert a string to a number
+            return ValueError
 
-    ...
+        return result

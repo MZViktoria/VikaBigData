@@ -12,6 +12,14 @@ class Homework:
         return (datetime.datetime.today() - self.created).days < self.deadline
 
 
+class HomeworkResult:
+    def __init__(self, homework, solution, author):
+        self.homework = homework
+        self.solution = solution
+        self.author = author
+        self.created = datetime.datetime.now()
+
+
 class Person:
     def __init__(self, first_name, last_name):
         self.first_name = first_name

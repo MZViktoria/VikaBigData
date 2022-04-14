@@ -21,7 +21,7 @@ class HomeworkResult:
         self.created = datetime.datetime.now()
 
 
-class Person:
+class Person: # classes student and teacher are inherited from class person
     def __init__(self, first_name, last_name):
         self.first_name = first_name
         self.last_name = last_name
@@ -64,6 +64,6 @@ class Teacher(Person):
             Teacher.homework_done[homework.text] = None
         else:
             Teacher.homework_done.clear()
-            
+
 # if you pass a Homework instance to the method, it only deletes the results of this task from homework_done
 # if nothing is passed, it will completely reset homework_done.

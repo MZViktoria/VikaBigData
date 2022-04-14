@@ -1,4 +1,5 @@
 import datetime
+from collections import defaultdict
 
 
 # self - Accesses an object of a class and assigns an attribute to the object.
@@ -26,18 +27,43 @@ class Person:
         self.last_name = last_name
 
 
+class DeadlineError(Exception):
+    pass
+
+
 class Student(Person):
-    def do_homework(self, Homework):
-        if Homework.is_active():
-            return Homework
-        else:
-            print("You are late.")
-            return None
+    def do_homework(self, Homework, Solution):
+        try:
+            if Homework.is_active():
+                return HomeworkResult(Homework, Solution, self)
+            else:
+                raise DeadlineError("You are late.")
+        except:
+            raise Exception()
 
 
-# the method takes a Homework object and returns it if the task is already overdue, it prints 'You are late' and returns None
+# accepts a Homework Result instance and returns True if the student's response is greater than 5 characters.
+# On successful verification, add to homework_done
 
 class Teacher(Person):
+    homework_done = defaultdict()
+
     def create_homework(self, text: str, deadline: datetime.timedelta):
         Hw = Homework(text, deadline)
         return Hw
+
+    def check_homework(self, HomeworkResult):
+        if len(HomeworkResult.solution) > 5:
+            self.homework_done[HomeworkResult.homework] = HomeworkResult.solution
+            return True
+        else:
+            return False
+
+    def reset_results(self, homework: Homework = None):
+        if homework is not None:
+            Teacher.homework_done[homework.text] = None
+        else:
+            Teacher.homework_done.clear()
+            
+# if you pass a Homework instance to the method, it only deletes the results of this task from homework_done
+# if nothing is passed, it will completely reset homework_done.

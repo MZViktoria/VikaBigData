@@ -37,4 +37,3 @@ if __name__ == '__main__':
     user, _, _ = User(), User(), User()
     user.get_created_instances()  # 3
     user.reset_instances_counter()  # 3
-

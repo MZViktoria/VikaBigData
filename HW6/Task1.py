@@ -32,14 +32,11 @@ class DeadlineError(Exception):
 
 
 class Student(Person):
-    def do_homework(self, Homework, Solution):
-        try:
-            if Homework.is_active():
-                return HomeworkResult(Homework, Solution, self)
-            else:
-                raise DeadlineError("You are late.")
-        except:
-            raise Exception()
+    def do_homework(self, homework, solution):
+        if homework.is_active():
+            return HomeworkResult(homework, solution, self)
+        else:
+            raise DeadlineError("You are late.")
 
 
 # accepts a Homework Result instance and returns True if the student's response is greater than 5 characters.

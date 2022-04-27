@@ -24,11 +24,11 @@ def backspace_compare(first: str, second: str):
     def backspace_method(s: str):
         i = 0
         while i < len(s):
-            if s[i] == '#': #проверка на #
+            if s[i] == '#': #checking for #
                 if i == 0:
-                    s = s[1:] # берём все элементы кроме 1
+                    s = s[1:] # take all elements except 1
                 else:
-                    s = s[:i - 1] + s[i + 1:] # берём все элементы слева и справа со сдвигом
+                    s = s[:i - 1] + s[i + 1:] # take all elements on the left and right with a shift
                     i = 0
             i += 1
         return s

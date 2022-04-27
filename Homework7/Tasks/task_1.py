@@ -32,7 +32,7 @@ def find_occurrences(tree: dict, element: Any) -> int:
     #return str(tree.values()).count(str(element))
     def counter(mnogestvo, elem):
         for val in (mnogestvo.values() if isinstance(mnogestvo,
-                                                dict) else mnogestvo):  #мы проверяем тип данных.явлияется ли элмент словарём или чем-то другим
+                                                dict) else mnogestvo):  #we check the data type. is the element a dictionary or something else
             if val == elem:
                 yield val
             elif isinstance(val, (list, tuple, set)):

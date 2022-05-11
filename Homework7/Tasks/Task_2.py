@@ -29,7 +29,7 @@ def backspace_compare(first: str, second: str):
                     s = s[1:] # take all elements except 1
                 else:
                     s = s[:i - 1] + s[i + 1:] # take all elements on the left and right with a shift
-                    i = 0
+                    i = -1
             i += 1
         return s
 
@@ -41,6 +41,4 @@ def backspace_compare(first: str, second: str):
         return f"Output: False\nExplanation: s becomes '{new_first}' " \
                f"while t becomes '{new_second}'"
 
-str1=input("введите строку 1: ")
-str2=input("введите строку 2: ")
-print(backspace_compare(str1, str2))
+print(backspace_compare('a#d', 'a##d'))

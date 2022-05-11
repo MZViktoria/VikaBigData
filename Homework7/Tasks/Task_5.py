@@ -1,28 +1,11 @@
-"""
-Write a function that merges integer from sorted files and returns an iterator
-
-file1.txt:
-1
-3
-5
-
-file2.txt:
-2
-4
-6
-
->>> list(merge_sorted_files(["file1.txt", "file2.txt"]))
-[1, 2, 3, 4, 5, 6]
-"""
 from pathlib import Path
 from typing import List, Union, Iterator
 
 
-def merge_sorted_files(file_list: List[Union[Path, str], ...]) -> Iterator[int]:
-    # m = []
-    # for i in file_list:
-    #     with open(i) as file:
-    #        for line in file:
-    #           m.append(int(line))
-    # return iter(sorted(m))
-    pass
+def merge_sorted_files(file_list: List[Union[Path, str]]) -> Iterator[int]:
+    m = []
+    for i in file_list: # iterate over the addresses inside the array
+        with open(i) as file: #Open the file at the given address
+            for line in file: #We read each line in the file
+                m.append(int(line[:len(line)-1])) #add a string to our array
+    return iter(sorted(m)) #return sorted iterator

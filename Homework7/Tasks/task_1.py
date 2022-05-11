@@ -29,6 +29,10 @@ example_tree = {
 
 
 def find_occurrences(tree: dict, element: Any) -> int:
+    """
+       >>> find_occurrences(example_tree, 'RED')
+       6
+    """
     #return str(tree.values()).count(str(element))
     def counter(mnogestvo, elem):
         for val in (mnogestvo.values() if isinstance(mnogestvo,

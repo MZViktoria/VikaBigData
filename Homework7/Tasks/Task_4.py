@@ -1,4 +1,13 @@
 class KeyValueStorage():
+    """
+    >>> storage = KeyValueStorage('Task_04')
+    >>> print(storage['name']) # will be string 'kek'
+    kek
+    >>> print(storage.song) # will be 'shadilay'
+    shadilay
+    >>> print(storage.power) # will be integer 9001
+    9001
+    """
     my_dict = {}
 
     def __init__(self, path):
